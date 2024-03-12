@@ -1,4 +1,5 @@
 import os
+import json
 import requests
 import logging
 from datetime import datetime
@@ -13,8 +14,7 @@ logging.basicConfig(level=logging.INFO)
 api_token = os.getenv('API_TOKEN', 'api')
 
 
-
-class IdoExample(IdoBase):
+class Ido(IdoBase):
 
     @staticmethod
     def call_api():
@@ -50,6 +50,7 @@ class IdoExample(IdoBase):
             'upcoming': 'upcoming',
         }
         
+        logger.debug(json.dumps(raw, indent=2))
         return {
             'lpad': 'ape',
             'token': raw.get('routeName'),
@@ -70,4 +71,4 @@ def read_root():
 
 @app.get(f"/{api_token}/prjs/")
 def get_prjs():
-    return IdoExample().get_prjs(skip_db=True)
+    return Ido().get_prjs(skip_db=True)

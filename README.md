@@ -1,26 +1,29 @@
 # ido-base
 
-todo:
 
-    - [x] call ape api for new prj
+## todo:
+
+    - [x] call api for new prj
     - [x] persistence to database
     - [x] deploy to serverless (Note Vercel only using python3.9)
 
 
-run:
+## Cmds:
+
     - set DB_URI='postgres://'
     - uvicorn main:app --reload
 
 
-tutorial:
+## used-in-submodule:
+
+```
+    git submodule add https://github.com/arig42/ido-base base
+    cp base/requirements.txt requirements.txt
+    cp base/vercel.json vercel.json
+    cp base/main.py main.py
+```
+
+
+## Notes:
 
     - https://fastapi.tiangolo.com/#example
-
-
-logs:
-
-```
-    pip install fastapi
-    pip install "uvicorn[standard]"
-    pip install psycopg2-binary
-```
